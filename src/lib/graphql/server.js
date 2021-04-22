@@ -30,7 +30,7 @@ const links = [
 		title: 'การไฟฟ้าส่วนภูมิภาค',
 		url: 'www.pea.co.th',
 		prefix: 'กฟภ.',
-		user: 'worakrit',
+		user: 'Worakrit Soontornthamniti',
 		content: 'some contnet'
 	},
 	{
@@ -46,27 +46,10 @@ const links = [
 		user: 'Worakrit Soontornthamniti'
 	}
 ];
-const users = [
-	{
-		name: 'Worakrit Soontornthamniti',
-		links: [
-			{
-				title: 'การไฟฟ้าส่วนภูมิภาค',
-				url: 'www.pea.co.th',
-				prefix: 'กฟภ.',
-				content: 'some contnet'
-			}
-		]
-	}
-];
 
 const resolvers = {
 	Query: {
-		links: () => links,
-		users: () => users
-	},
-	Mutation: {
-		addlink: (title, user) => links
+		links: () => links
 	}
 };
 

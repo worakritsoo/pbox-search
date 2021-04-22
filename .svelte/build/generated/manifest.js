@@ -4,6 +4,7 @@ const c = [
 	() => import("..\\..\\..\\src\\routes\\index.svelte"),
 	() => import("..\\..\\..\\src\\routes\\search\\index.svelte"),
 	() => import("..\\..\\..\\src\\routes\\about.svelte"),
+	() => import("..\\..\\..\\src\\routes\\login\\index.svelte"),
 	() => import("..\\..\\..\\src\\routes\\todos\\index.svelte")
 ];
 
@@ -19,11 +20,14 @@ export const routes = [
 	// src/routes/about.svelte
 	[/^\/about\/?$/, [c[0], c[4]], [c[1]]],
 
+	// src/routes/login/index.svelte
+	[/^\/login\/?$/, [c[0], c[5]], [c[1]]],
+
 	// src/routes/todos/index.json.ts
 	[/^\/todos\.json$/],
 
 	// src/routes/todos/index.svelte
-	[/^\/todos\/?$/, [c[0], c[5]], [c[1]]],
+	[/^\/todos\/?$/, [c[0], c[6]], [c[1]]],
 
 	// src/routes/todos/[uid].json.ts
 	[/^\/todos\/([^/]+?)\.json$/]

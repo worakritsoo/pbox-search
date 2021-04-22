@@ -2,15 +2,20 @@
 <html lang="en">
 	<head>
 		<meta charset="utf-8" />
-		<link rel="icon" href="/favicon.ico" />
+		<link rel="icon" baseurl="./static/favicon.ico" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-
+		<script
+			type="module"
+			src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.esm.js"
+		></script>
+		<script nomodule src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.js"></script>
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@ionic/core/css/ionic.bundle.css" />
 		<title>About</title>
 
 		
 
 		<link rel="stylesheet" href="/./_app/assets/start-0826e215.css">
-		<link rel="stylesheet" href="/./_app/assets/pages/$layout.svelte-75de69a1.css">
+		<link rel="stylesheet" href="/./_app/assets/pages/$layout.svelte-74cc7894.css">
 		<link rel="stylesheet" href="/./_app/assets/pages/about.svelte-51ba7a34.css">
 
 		
@@ -19,15 +24,27 @@
 		<div id="svelte">
 
 
-<header><div class="md:container inline"><a href="."><h1 class="mx-10">Pea</h1></a>
-
-<nav><ul><li><a sveltekit:prefetch href="/">หน้าแรก</a></li>
-		<li class="active"><a sveltekit:prefetch href="/about">เกี่ยวกับเรา</a></li>
-		<li><a sveltekit:prefetch href="/todos">รายการที่่ต้องทำ</a></li>
-		<li><a sveltekit:prefetch href="/search">ค้นหา</a></li></ul></nav></div></header>
-<div class="flex flex-col h-screen justify-between"><div class="h-10 bg-blue-100"></div>
+<body><ion-app><ion-split-pane content-id="main">
+	<ion-menu content-id="main" class="svelte-1vt1sef"><ion-header><ion-toolbar color="pea"><ion-title>User</ion-title></ion-toolbar></ion-header>
+	<ion-content><ion-list><li><a sveltekit:prefetch href="/">หน้าแรก</a></li>
+	<li><a sveltekit:prefetch href="/login">เข้าใช้งาน</a></li>
+	<li class="active"><a sveltekit:prefetch href="/about">เกี่ยวกับเรา</a></li>
+	<li><a sveltekit:prefetch href="/todos">รายการที่่ต้องทำ</a></li>
+	<li><a sveltekit:prefetch href="/search">ค้นหา</a></li>
+	<ion-item><ion-label>Toggle</ion-label>
+		<ion-toggle slot="end"></ion-toggle></ion-item></ion-list></ion-content>
+</ion-menu>
 
 	
+	<div class="ion-page" id="main"><ion-header><ion-toolbar color="pea"><ion-buttons slot="secondary"><ion-button onclick="() => {
+    console.log(`on search `);
+  }"><ion-icon slot="icon-only" name="search"></ion-icon></ion-button>
+	<ion-button><ion-icon slot="icon-only" name="person-circle"></ion-icon></ion-button></ion-buttons>
+<ion-title>Pea</ion-title>
+<ion-buttons slot="start"><ion-menu-toggle auto-hide="false"><ion-button><ion-icon slot="icon-only" name="menu"></ion-icon></ion-button></ion-menu-toggle></ion-buttons></ion-toolbar></ion-header>
+
+
+		<ion-content class="ion-padding">
 
 <div class="content svelte-t58uux"><h1>About this app</h1>
 
@@ -46,12 +63,9 @@ the devtools network panel and reloading.
 	<p>The <a href="/todos">TODOs</a> page illustrates SvelteKit&#39;s data loading and form handling. Try using
 it with JavaScript disabled!
 	</p>
-</div>
-	<main class="mb-auto h-10 bg-green-500"></main>
-	
+</div></ion-content></div></ion-split-pane></ion-app></body>
 
-	<footer class="h-10 bg-blue-500"></footer>
-</div>
+
 
 
 

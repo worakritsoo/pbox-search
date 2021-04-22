@@ -1,5 +1,9 @@
 <script context="module" lang="ts">
 	export const prerender = true;
+
+	import type { Load } from '@sveltejs/kit';
+
+	// see https://kit.svelte.dev/docs#loading
 </script>
 
 <script lang="ts">

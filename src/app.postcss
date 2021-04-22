@@ -7,3 +7,35 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+	--ion-color-pea: #4b0082;
+	--ion-color-pea-rgb: 75, 0, 130;
+	--ion-color-pea-contrast: #ffffff;
+	--ion-color-pea-contrast-rgb: 255, 255, 255;
+	--ion-color-pea-shade: #420072;
+	--ion-color-pea-tint: #5d1a8f;
+}
+
+.ion-color-pea {
+	--ion-color-base: var(--ion-color-pea);
+	--ion-color-base-rgb: var(--ion-color-pea-rgb);
+	--ion-color-contrast: var(--ion-color-pea-contrast);
+	--ion-color-contrast-rgb: var(--ion-color-pea-contrast-rgb);
+	--ion-color-shade: var(--ion-color-pea-shade);
+	--ion-color-tint: var(--ion-color-pea-tint);
+}
+
+ion-toolbar {
+	@apply opacity-70;
+}
+
+input {
+	border: 1px solid transparent;
+}
+
+input:focus-visible {
+	box-shadow: inset 1px 1px 6px rgba(0, 0, 0, 0.1);
+	border: 1px solid #b700ff !important;
+	outline: none;
+}

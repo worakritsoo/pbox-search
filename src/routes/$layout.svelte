@@ -2,18 +2,36 @@
 	import Header from '$lib/Header/index.svelte';
 	import Footer from '$lib/Footer/index.svelte';
 	import '../app.postcss';
+	import IonMenu from '$lib/Components/IonMenu.svelte';
+	import IonHeader from '$lib/Components/IonHeader.svelte';
 </script>
 
-<Header />
+<body>
+	<ion-app>
+		<ion-split-pane content-id="main">
+			<!--  the side menu  -->
+			<IonMenu />
+
+			<!-- the main content -->
+			<div class="ion-page" id="main">
+				<IonHeader />
+				<ion-content class="ion-padding">
+					<slot />
+				</ion-content>
+			</div>
+		</ion-split-pane>
+	</ion-app>
+</body>
+
+<!-- 
 <div class="flex flex-col h-screen justify-between">
-	<div class="h-10 bg-blue-100" />
+	<Header />
 
-	<slot />
-	<main class="mb-auto h-10 bg-green-500" />
-	<!-- สำหรับใส่ลิ้งข้างล่าง เช่น  ลิ้งติดต่อ หรืออื่นๆ -->
+	<main class="mb-auto flex-grow bg-gray-100">
+		<slot />
+	</main>
 
-	<footer class="h-10 bg-blue-500" />
-</div>
-
+	<footer class="h-10 bg-indigo-200" />
+</div> -->
 <style>
 </style>

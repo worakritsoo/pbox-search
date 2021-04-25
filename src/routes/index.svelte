@@ -10,7 +10,10 @@
 	<title>Home</title>
 </svelte:head>
 
-<section>Pea</section>
+<section>
+	Pea
+	<input type="text" />
+</section>
 
 <style style lang="postcss">
 </style>

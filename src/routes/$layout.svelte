@@ -1,19 +1,39 @@
 <script lang="ts">
-	import Header from '$lib/Header/index.svelte';
-	import Footer from '$lib/Footer/index.svelte';
 	import '../app.postcss';
+	import Menu from '$lib/Menu/menu.svelte';
 </script>
 
-<Header />
-<div class="flex flex-col h-screen justify-between">
-	<div class="h-10 bg-blue-100" />
-
-	<slot />
-	<main class="mb-auto h-10 bg-green-500" />
-	<!-- สำหรับใส่ลิ้งข้างล่าง เช่น  ลิ้งติดต่อ หรืออื่นๆ -->
-
-	<footer class="h-10 bg-blue-500" />
-</div>
+<body>
+	<ion-split-pane content-id="menu-content" when="xl">
+		<ion-menu content-id="menu-content" side="start" type="overlay">
+			<ion-header>
+				<ion-toolbar color="primary">
+					<ion-title>Menu</ion-title>
+				</ion-toolbar>
+			</ion-header>
+			<ion-content>
+				<Menu />
+			</ion-content>
+		</ion-menu>
+		<div class="ion-page" id="menu-content">
+			<ion-header>
+				<ion-toolbar>
+					<ion-buttons slot="start">
+						<ion-menu-toggle>
+							<ion-button>
+								<ion-icon slot="icon-only" name="menu" />
+							</ion-button>
+						</ion-menu-toggle>
+					</ion-buttons>
+					<ion-title>Header</ion-title>
+				</ion-toolbar>
+			</ion-header>
+			<ion-content class="ion-padding">
+				<slot />
+			</ion-content>
+		</div>
+	</ion-split-pane>
+</body>
 
 <style>
 </style>

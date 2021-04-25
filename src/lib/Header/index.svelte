@@ -5,7 +5,7 @@
 
 <header>
 	<div class="md:container inline">
-		<a href=".">
+		<a href="/">
 			<h1 class="mx-10">Pea</h1>
 		</a>
 

@@ -4,7 +4,7 @@ import { set_paths } from './runtime/paths.js';
 import { set_prerendering } from './runtime/env.js';
 import * as user_hooks from "..\\..\\src\\hooks.ts";
 
-const template = ({ head, body }) => "<!DOCTYPE html>\r\n<html lang=\"en\">\r\n\t<head>\r\n\t\t<meta charset=\"utf-8\" />\r\n\t\t<link rel=\"icon\" href=\"/favicon.ico\" />\r\n\t\t<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\r\n\t\t<script type=\"module\" src=\"https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.esm.js\"></script>\r\n\t\t<script nomodule=\"\" src=\"https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.js\"></script>\r\n\t\t" + head + "\r\n\t</head>\r\n\t<body>\r\n\t\t<div id=\"svelte\">" + body + "</div>\r\n\t</body>\r\n</html>\r\n";
+const template = ({ head, body }) => "<!DOCTYPE html>\n<html lang=\"en\">\n\t<head>\n\t\t<meta charset=\"utf-8\" />\n\t\t<link rel=\"icon\" href=\"/favicon.ico\" />\n\t\t<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n\t\t<script\n\t\t\ttype=\"module\"\n\t\t\tsrc=\"https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.esm.js\"\n\t\t></script>\n\t\t<script nomodule src=\"https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.js\"></script>\n\t\t<link rel=\"stylesheet\" href=\"https://cdn.jsdelivr.net/npm/@ionic/core/css/ionic.bundle.css\" />\n\t\t" + head + "\n\t</head>\n\t<body class=\"bg-gray-400\">\n\t\t<div id=\"svelte\">" + body + "</div>\n\t</body>\n</html>\n";
 
 let options = null;
 
@@ -18,9 +18,9 @@ export function init(settings) {
 		amp: false,
 		dev: false,
 		entry: {
-			file: "/./_app/start-4aa31b88.js",
+			file: "/./_app/start-362498c8.js",
 			css: ["/./_app/assets/start-0826e215.css"],
-			js: ["/./_app/start-4aa31b88.js","/./_app/chunks/index-befac657.js"]
+			js: ["/./_app/start-362498c8.js","/./_app/chunks/vendor-a24f1eef.js"]
 		},
 		fetched: undefined,
 		get_component_path: id => "/./_app/" + entry_lookup[id],
@@ -60,6 +60,12 @@ const manifest = {
 						b: [".svelte/build/components/error.svelte"]
 					},
 		{
+						type: 'endpoint',
+						pattern: /^\/graphql\/?$/,
+						params: empty,
+						load: () => import("..\\..\\src\\routes\\graphql.ts")
+					},
+		{
 						type: 'page',
 						pattern: /^\/search\/?$/,
 						params: empty,
@@ -71,6 +77,20 @@ const manifest = {
 						pattern: /^\/about\/?$/,
 						params: empty,
 						a: ["src/routes/$layout.svelte", "src/routes/about.svelte"],
+						b: [".svelte/build/components/error.svelte"]
+					},
+		{
+						type: 'page',
+						pattern: /^\/login\/?$/,
+						params: empty,
+						a: ["src/routes/$layout.svelte", "src/routes/login/index.svelte"],
+						b: [".svelte/build/components/error.svelte"]
+					},
+		{
+						type: 'page',
+						pattern: /^\/posts\/?$/,
+						params: empty,
+						a: ["src/routes/$layout.svelte", "src/routes/posts/index.svelte"],
 						b: [".svelte/build/components/error.svelte"]
 					},
 		{
@@ -104,10 +124,10 @@ const get_hooks = hooks => ({
 });
 
 const module_lookup = {
-	"src/routes/$layout.svelte": () => import("..\\..\\src\\routes\\$layout.svelte"),".svelte/build/components/error.svelte": () => import("./components\\error.svelte"),"src/routes/index.svelte": () => import("..\\..\\src\\routes\\index.svelte"),"src/routes/search/index.svelte": () => import("..\\..\\src\\routes\\search\\index.svelte"),"src/routes/about.svelte": () => import("..\\..\\src\\routes\\about.svelte"),"src/routes/todos/index.svelte": () => import("..\\..\\src\\routes\\todos\\index.svelte")
+	"src/routes/$layout.svelte": () => import("..\\..\\src\\routes\\$layout.svelte"),".svelte/build/components/error.svelte": () => import("./components\\error.svelte"),"src/routes/index.svelte": () => import("..\\..\\src\\routes\\index.svelte"),"src/routes/search/index.svelte": () => import("..\\..\\src\\routes\\search\\index.svelte"),"src/routes/about.svelte": () => import("..\\..\\src\\routes\\about.svelte"),"src/routes/login/index.svelte": () => import("..\\..\\src\\routes\\login\\index.svelte"),"src/routes/posts/index.svelte": () => import("..\\..\\src\\routes\\posts\\index.svelte"),"src/routes/todos/index.svelte": () => import("..\\..\\src\\routes\\todos\\index.svelte")
 };
 
-const metadata_lookup = {"src/routes/$layout.svelte":{"entry":"/./_app/pages/$layout.svelte-82248cb3.js","css":["/./_app/assets/pages/$layout.svelte-a2e4dd7c.css"],"js":["/./_app/pages/$layout.svelte-82248cb3.js","/./_app/chunks/index-befac657.js"],"styles":null},".svelte/build/components/error.svelte":{"entry":"/./_app/error.svelte-bb5bc4d9.js","css":[],"js":["/./_app/error.svelte-bb5bc4d9.js","/./_app/chunks/index-befac657.js"],"styles":null},"src/routes/index.svelte":{"entry":"/./_app/pages/index.svelte-f4f899b9.js","css":["/./_app/assets/pages/index.svelte-252481cb.css"],"js":["/./_app/pages/index.svelte-f4f899b9.js","/./_app/chunks/index-befac657.js"],"styles":null},"src/routes/search/index.svelte":{"entry":"/./_app/pages/search/index.svelte-0fcba4a3.js","css":[],"js":["/./_app/pages/search/index.svelte-0fcba4a3.js","/./_app/chunks/index-befac657.js"],"styles":null},"src/routes/about.svelte":{"entry":"/./_app/pages/about.svelte-4378a4d5.js","css":["/./_app/assets/pages/about.svelte-51ba7a34.css"],"js":["/./_app/pages/about.svelte-4378a4d5.js","/./_app/chunks/index-befac657.js"],"styles":null},"src/routes/todos/index.svelte":{"entry":"/./_app/pages/todos/index.svelte-daa0c4c9.js","css":["/./_app/assets/pages/todos/index.svelte-e503477f.css"],"js":["/./_app/pages/todos/index.svelte-daa0c4c9.js","/./_app/chunks/index-befac657.js"],"styles":null}};
+const metadata_lookup = {"src/routes/$layout.svelte":{"entry":"/./_app/pages/$layout.svelte-ddb3f0f2.js","css":["/./_app/assets/pages/$layout.svelte-9ec6679e.css"],"js":["/./_app/pages/$layout.svelte-ddb3f0f2.js","/./_app/chunks/vendor-a24f1eef.js"],"styles":null},".svelte/build/components/error.svelte":{"entry":"/./_app/error.svelte-7b653855.js","css":[],"js":["/./_app/error.svelte-7b653855.js","/./_app/chunks/vendor-a24f1eef.js"],"styles":null},"src/routes/index.svelte":{"entry":"/./_app/pages/index.svelte-02a48971.js","css":[],"js":["/./_app/pages/index.svelte-02a48971.js","/./_app/chunks/vendor-a24f1eef.js"],"styles":null},"src/routes/search/index.svelte":{"entry":"/./_app/pages/search/index.svelte-7ec510f6.js","css":["/./_app/assets/pages/search/index.svelte-1816ad23.css"],"js":["/./_app/pages/search/index.svelte-7ec510f6.js","/./_app/chunks/vendor-a24f1eef.js"],"styles":null},"src/routes/about.svelte":{"entry":"/./_app/pages/about.svelte-345a8d46.js","css":[],"js":["/./_app/pages/about.svelte-345a8d46.js","/./_app/chunks/vendor-a24f1eef.js"],"styles":null},"src/routes/login/index.svelte":{"entry":"/./_app/pages/login/index.svelte-33884492.js","css":[],"js":["/./_app/pages/login/index.svelte-33884492.js","/./_app/chunks/vendor-a24f1eef.js"],"styles":null},"src/routes/posts/index.svelte":{"entry":"/./_app/pages/posts/index.svelte-11057af4.js","css":["/./_app/assets/pages/posts/index.svelte-26385cd8.css"],"js":["/./_app/pages/posts/index.svelte-11057af4.js","/./_app/chunks/vendor-a24f1eef.js"],"styles":null},"src/routes/todos/index.svelte":{"entry":"/./_app/pages/todos/index.svelte-59f26a61.js","css":[],"js":["/./_app/pages/todos/index.svelte-59f26a61.js","/./_app/chunks/vendor-a24f1eef.js"],"styles":null}};
 
 async function load_component(file) {
 	return {

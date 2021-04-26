@@ -1,0 +1,1 @@
+import{S as s,i as e,s as t,t as a,g as r,f as n,G as c,d as l}from"../../chunks/vendor-3b61be57.js";function o(s){let e;return{c(){e=a("implement search")},l(s){e=r(s,"implement search")},m(s,t){n(s,e,t)},p:c,i:c,o:c,d(s){s&&l(e)}}}export default class extends s{constructor(s){super(),e(this,s,null,o,t,{})}}

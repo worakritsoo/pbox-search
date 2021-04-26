@@ -28,7 +28,7 @@
 					<ion-title>Header</ion-title>
 				</ion-toolbar>
 			</ion-header>
-			<ion-content class="ion-padding">
+			<ion-content class="no-padding">
 				<slot />
 			</ion-content>
 		</div>
@@ -36,4 +36,7 @@
 </body>
 
 <style>
+	ion-menu{
+		--side-max-width:180px;
+	}
 </style>

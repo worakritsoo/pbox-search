@@ -8,21 +8,11 @@
 @tailwind components;
 @tailwind utilities;
 
-
 /* Core CSS required for Ionic components to work properly */
-@import "@ionic/core/css/core.css";
 
-/* Basic CSS for apps built with Ionic */
-@import "@ionic/core/css/normalize.css";
-@import "@ionic/core/css/structure.css";
-@import "@ionic/core/css/typography.css";
-
-/* Optional CSS utils that can be commented out */
-@import "@ionic/core/css/padding.css";
-@import "@ionic/core/css/float-elements.css";
-@import "@ionic/core/css/text-alignment.css";
-@import "@ionic/core/css/text-transformation.css";
-@import "@ionic/core/css/flex-utils.css";
+details > summary {
+	list-style: none;
+}
 
 
 /*
@@ -30,9 +20,43 @@
  * ----------------------------------------------------------------------------
  * Imports theme files that can be used to theme an application.
  */
+* {
+	font-family: inherit;
+	font-size: inherit;
+}
+
+
+
+.buttons {
+	clear: both;
+}
+
+:root {
+	primary: #b058f9;
+
+	--ion-color-primary: #b058f9;
+	--ion-color-primary-rgb: 176, 88, 249;
+	--ion-color-primary-contrast: #000000;
+	--ion-color-primary-contrast-rgb: 0, 0, 0;
+	--ion-color-primary-shade: #9b4ddb;
+	--ion-color-primary-tint: #b869fa;
+
+	--ion-color-secondary: #403dff;
+	--ion-color-secondary-rgb: 64, 61, 255;
+	--ion-color-secondary-contrast: #ffffff;
+	--ion-color-secondary-contrast-rgb: 255, 255, 255;
+	--ion-color-secondary-shade: #3836e0;
+	--ion-color-secondary-tint: #5350ff;
+
+	--ion-color-tertiary: #52c5ff;
+	--ion-color-tertiary-rgb: 82, 197, 255;
+	--ion-color-tertiary-contrast: #000000;
+	--ion-color-tertiary-contrast-rgb: 0, 0, 0;
+	--ion-color-tertiary-shade: #48ade0;
+	--ion-color-tertiary-tint: #63cbff;
+}
 
 @layer base {
-	input{
-		@apply bg-purple-300;
+	button {
 	}
 }

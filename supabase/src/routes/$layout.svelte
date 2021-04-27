@@ -9,7 +9,9 @@ import Menu from "../lib/components/menu.svelte";
                 <Menu></Menu>
             </ion-menu>
             <div class="ion-page" id="menu-content" color="light">
+                <ion-content>
                     <slot>1</slot>
+                </ion-content>
             </div>
         </ion-split-pane>   
         

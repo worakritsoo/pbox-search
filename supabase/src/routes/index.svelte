@@ -3,8 +3,9 @@
 	import Modal from '$lib/components/modal.svelte';
 	let email;
 	let password;
-    let postname;
+	let postname;
 	const user = supabase.auth.user();
+	let listpost=[]
 
 	async function signUp() {
 		const { user, error } = await supabase.auth.signUp({
@@ -13,56 +14,70 @@
 		});
 	}
 	async function logIn() {
-		const { user, session, error } = await supabase.auth.signIn({
-			email: 'worakrit.soo@pea.co.th',
-			password: 'example-password'
-		}).then(
-            res=>{
-                console.log(res);
-            }
-        )
+		const { user, session, error } = await supabase.auth
+			.signIn({
+				email: 'worakrit.soo@pea.co.th',
+				password: 'example-password'
+			})
+			.then((res) => {
+				console.log(res);
+			});
 	}
 
-    async function addpost(){
-    const newPost = await supabase
-        .from('posts')
-         .insert(
-         { name: postname,details:{}})
-    }
+	async function addpost() {
+		if(data){
 
-async function getAll(){
-    const posts = await supabase
-    .from('posts')
-    .select()
+			const newPost = await supabase.from('posts').insert();
+		}
+	}
 
-}
-getAll()
+	async function getAll() {
+		const posts = await supabase.from('posts').select('*');
+		console.log(posts.body)
+		listpost = posts.body
+	}
+	
 </script>
 
-<ion-header collapse>
+<ion-header>
 	<ion-toolbar>
-		<ion-buttons slot="secondary">
-			<ion-button>
-				<ion-icon slot="icon-only" name="person-circle" />
-			</ion-button>
-			<ion-button>
-				<ion-icon slot="icon-only" name="search" />
-			</ion-button>
-		</ion-buttons>
-		<ion-title>
-			<h1>Pea</h1>
-		</ion-title>
-		<ion-buttons slot="primary">
-			<ion-button color="secondary">
-				<ion-icon slot="icon-only" ios="ellipsis-horizontal" md="ellipsis-vertical" />
-			</ion-button>
-		</ion-buttons>
+		<ion-title>Home</ion-title>
 	</ion-toolbar>
 </ion-header>
-   
-    <input type="text" bind:value={postname} />
-    <ion-button on:click={addpost}>Add Posts</ion-button>
-    <ion-button on:click={signUp}>Login</ion-button>
+
+<ion-button on:click={getAll}>getAll</ion-button>
+	<!-- promise is pending -->
+{#each listpost as post}
+	 <!-- content here -->
+	       <ion-item-sliding id={post.id}>
+                        <ion-item href="#">
+                        <ion-label>
+                            <h2>{post.Name}</h2>
+                            <p>{post.url}</p>
+                            <p>{post.details}</p>
+                        </ion-label>
+                        <ion-note slot="end">
+                           🚀
+                        </ion-note>
+                        </ion-item>
+
+                        <ion-item-options side="start">
+                        <ion-item-option>
+                            <ion-icon slot="icon-only" name="heart"></ion-icon>
+                        </ion-item-option>
+                        </ion-item-options>
+
+                        <ion-item-options side="end">
+                        <ion-item-option color="danger">
+                            <ion-icon slot="icon-only" name="trash"></ion-icon>
+                        </ion-item-option>
+                        <ion-item-option>
+                            <ion-icon slot="icon-only" name="star"></ion-icon>
+                        </ion-item-option>
+                        </ion-item-options>
+                    </ion-item-sliding>
+{/each}
+	<!-- promise was fulfilled -->
 
 
 

@@ -12,13 +12,21 @@
             <ion-title>Menu</ion-title>
         </ion-toolbar>
     </ion-header>
-      <ion-item>
-            <ion-avatar slot="start">
-                <img {src} alt="avt"/>
-            </ion-avatar>
-            <ion-label>Item Avatar</ion-label>
-        </ion-item>
-        <a href="posts">Post</a><a href="search">search</a>
-        <a href=".">Home</a>
+ <!-- Item as a Button -->
+<ion-item button>
+  <ion-label>
+    <a href=".">Home</a>
+  </ion-label>
+</ion-item>
+<ion-item button>
+  <ion-label>
+    <a href="posts">Posts</a>
+  </ion-label>
+</ion-item>
+<ion-item button>
+  <ion-label>
+    <a href="search">Search</a>
+  </ion-label>
+</ion-item>
       
 </ion-content>

@@ -1,5 +1,0 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>Search</ion-title>
-  </ion-toolbar>
-</ion-header>
